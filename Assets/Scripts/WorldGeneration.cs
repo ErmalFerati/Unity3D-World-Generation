@@ -5,8 +5,6 @@ public class WorldGeneration : MonoBehaviour
     public static WorldGeneration instance;
     public WorldBit currentWorldBit;
 
-    private Vector3 positionToSpawn;
-
     private void Awake()
     {
         instance = this;
@@ -17,9 +15,9 @@ public class WorldGeneration : MonoBehaviour
         generateWorldBit(Vector3.zero);
     }
 
-    public void generateWorldBit(Vector3 distance)
+    public void generateWorldBit(Vector3 position)
     {
-        Instantiate(getMatchingWorldBit(), positionToSpawn += distance, Quaternion.identity);
+        Instantiate(getMatchingWorldBit(), position, Quaternion.identity);
     }
 
     private WorldBit getMatchingWorldBit()
